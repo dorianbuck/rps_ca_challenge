@@ -23,4 +23,9 @@ blocks:
         always:
           commands:
             - 'exitcode=$(if [ "$SEMAPHORE_THREAD_RESULT" == "passed" ]; then 0; else 1; fi)'
+        on_pass:
+          commands:
+            - ./cc-test-reporter after-build --exit-code $exitcode
+        on_fail:
+          commands:
             - ./cc-test-reporter after-build --exit-code $exitcode
