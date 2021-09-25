@@ -12,5 +12,5 @@ blocks:
           commands:
             - sem-version node 8
             - checkout
-            - yarn install
-            - yarn test
+            - ./node_modules/.bin/cypress install
+            - 'yarn run cy:run'
