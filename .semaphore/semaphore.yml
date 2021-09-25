@@ -12,4 +12,4 @@ blocks:
           commands:
             - yarn install
             - yarn add cypress
-            - 'yarn run cy:run'
+            - yarn cypress
