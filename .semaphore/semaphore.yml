@@ -22,4 +22,4 @@ blocks:
       epilogue:
         always:
           commands:
-            - 'exitcode=$(if [ "$SEMAPHORE_THREAD_RESULT" == "passed" ]; then 0; else 1; fi)./cc-test-reporter after-build --exit-code $exitcode'
+            - 'exitcode=$(if [ "$SEMAPHORE_THREAD_RESULT" == "passed" ]; then echo 0; else echo 1; fi)./cc-test-reporter after-build --exit-code $exitcode'
