@@ -1,9 +1,12 @@
 describe("The game logic is being tested", () => {
   describe("Computers pre loaded choices will make the following to happen", () => {
-    cy.visit("/", {
-      onBeforeLoad(pre_det) {
-        cy.stub(pre_det.Math, "computer_choice").returns("scissor");
-      },
+    beforeEach(() => {
+      cy.visit("/"),
+        {
+          onBeforeLoad(pre_det) {
+            cy.stub(pre_det.Math, "computer_choice").returns("scissor");
+          },
+        };
     });
     it("is expected to display the computer choice and outcome when users choice is rock", () => {
       cy.get("[data-cy=btn-rock]").click();
