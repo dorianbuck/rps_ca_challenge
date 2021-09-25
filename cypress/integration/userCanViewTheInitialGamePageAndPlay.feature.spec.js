@@ -1,15 +1,15 @@
 describe("User can see the game page and press the buttons to play", () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit("/");
   });
   it("is expected to display a header", () => {
     cy.get("[data-cy=header]").should("be.visible");
   });
-  it('is expected to be a user hand illustration or image', () => {
-    cy.get("[data-cy=user-image]").should("be.visible")
+  it("is expected to be a user hand illustration or image", () => {
+    cy.get("[data-cy=user-image]").should("be.visible");
   });
-  it('is expected to be a computer hand illustration or image', () => {
-    cy.get("[data-cy=computer-image]").should("be.visible")
+  it("is expected to be a computer hand illustration or image", () => {
+    cy.get("[data-cy=computer-image]").should("be.visible");
   });
   it("is expected to see a row of three buttons", () => {
     cy.get("[data-cy=btn-group]").should("be.visible");
@@ -26,31 +26,15 @@ describe("User can see the game page and press the buttons to play", () => {
     cy.get("[data-cy=btn-scissor]").click();
     cy.get("[data-cy=user-choice-info]").should("contain", "Scissor");
   });
-  it("is expected to display the computer choice and outcome when users choice is rock", () => {
-    cy.stub(obj, "method").withArgs("bar").returns("foo");
-
+  it("is expected to be visible a reset button once a game has been played", () => {
+    cy.reload();
+    cy.get("[data-cy=btn-reset]").should("not.be.visible");
     cy.get("[data-cy=btn-rock]").click();
-    cy.get("[data-cy=computer-choice-info]").should("contain", "Scissor");
-    cy.get("[data-cy=game-results]").should("contain", "You won!");
+    cy.get("[data-cy=btn-reset]").should("be.visible");
+    cy.get("[data-cy=btn-reset]").click();
   });
-  it("is expected to display the computer choice and outcome when users choice is paper", () => {
-    cy.stub(obj, "method").withArgs("bar").returns("foo");
-
-    cy.get("[data-cy=btn-paper]").click();
-    cy.get("[data-cy=computer-choice-info]").should("contain", "Paper");
-    cy.get("[data-cy=game-results]").should("contain", "It's a draw!");
-  });
-  it("is expected to display the computer choice and outcome when users choice is scissor", () => {
-    cy.stub(obj, "method").withArgs("bar").returns("foo");
-
-    cy.get("[data-cy=btn-scissor]").click();
-    cy.get("[data-cy=computer-choice-info]").should("contain", "Rock");
-    cy.get("[data-cy=game-results]").should("contain", "You lost!");
-  });
-});
-
-describe('', () => {
-  it('', () => {
-    
+  it("is expected for gamebuttons to be disabled once a game been played", () => {
+    cy.get("[data-cy=btn-rock]").click();
+    cy.get("[data-cy=btn-rock]").click().should("not.be.active");
   });
 });
