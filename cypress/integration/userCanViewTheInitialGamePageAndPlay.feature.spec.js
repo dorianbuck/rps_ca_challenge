@@ -5,6 +5,9 @@ describe("User can see the game page and press the buttons to play", () => {
   it("is expected to display a header", () => {
     cy.get("[data-cy=header]").should("be.visible");
   });
+  it('is expected to display a footer', () => {
+    cy.get('[data-cy=footer]').should('contain', 'Made with React 17.0.2')
+  });
   it("is expected to be a user hand illustration or image", () => {
     cy.get("[data-cy=user-image]").should("be.visible");
   });
@@ -28,7 +31,7 @@ describe("User can see the game page and press the buttons to play", () => {
   });
   it("is expected to be visible a reset button once a game has been played", () => {
     cy.reload();
-    cy.get("[data-cy=btn-reset]").should("not.be.visible");
+    cy.get("[data-cy=btn-reset]").should("be.disabled");
     cy.get("[data-cy=btn-rock]").click();
     cy.get("[data-cy=btn-reset]").should("be.visible");
     cy.get("[data-cy=btn-reset]").click();
