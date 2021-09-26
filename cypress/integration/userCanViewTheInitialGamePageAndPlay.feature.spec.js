@@ -1,12 +1,13 @@
 describe("User can see the game page and press the buttons to play", () => {
   beforeEach(() => {
     cy.visit("/");
+    cy.get("[data-cy=btn-group]").as("btnGroup");
   });
   it("is expected to display a header", () => {
     cy.get("[data-cy=header]").should("be.visible");
   });
-  it('is expected to display a footer', () => {
-    cy.get('[data-cy=footer]').should('contain', 'Made with React 17.0.2')
+  it("is expected to display a footer", () => {
+    cy.get("[data-cy=footer]").should("contain", "Made with React 17.0.2");
   });
   it("is expected to be a user hand illustration or image", () => {
     cy.get("[data-cy=user-image]").should("be.visible");
@@ -18,16 +19,23 @@ describe("User can see the game page and press the buttons to play", () => {
     cy.get("[data-cy=btn-group]").should("be.visible");
   });
   it("is expected to exist a btn-rock that user can press for the rock choice", () => {
-    cy.get("[data-cy=btn-rock]").click();
-    cy.get("[data-cy=user-choice-info]").should("contain", "Rock");
+    cy.get("@btnGroup")
+      .first()
+      .click();
+    cy.get("button.ui.button").should("contain", "Rock");
   });
   it("is expected to exist a btn-paper that user can press for the paper choice", () => {
-    cy.get("[data-cy=btn-paper]").click();
-    cy.get("[data-cy=user-choice-info]").should("contain", "Paper");
+    cy.get("@btnGroup")
+      .first()
+      .next()
+      .click();
+    cy.get("button.ui.button").should("contain", "Paper");
   });
   it("is expected to exist a btn-scissor that user can press for the scissor choice", () => {
-    cy.get("[data-cy=btn-scissor]").click();
-    cy.get("[data-cy=user-choice-info]").should("contain", "Scissor");
+    cy.get("@btnGroup")
+      .last()
+      .click();
+    cy.get("button.ui.button").should("contain", "Scissor");
   });
   it("is expected to be visible a reset button once a game has been played", () => {
     cy.reload();
