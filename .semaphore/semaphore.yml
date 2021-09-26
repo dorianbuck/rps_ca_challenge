@@ -1,0 +1,26 @@
+version: v1.0
+name: Node JS
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Install dependencies
+    task:
+      jobs:
+        - name: yarn install
+          commands:
+            - 'curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter'
+            - chmod +x ./cc-test-reporter
+            - ./cc-test-reporter before-build
+            - yarn install
+            - yarn add cypress
+            - yarn cypress
+      env_vars:
+        - name: CC_TEST_REPORTER_ID
+          value: 84ad2884ef149872ee17811c9edab94656120055ea430ee2299b1d296afb97c1
+      epilogue:
+        always:
+          commands:
+            - 'exitcode=$(if [ "$SEMAPHORE_JOB_RESULT" == "passed" ]; then echo 0; else echo 1; fi)'
+            - ./cc-test-reporter after-build --exit-code $exitcode
