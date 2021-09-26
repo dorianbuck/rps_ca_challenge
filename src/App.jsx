@@ -18,6 +18,7 @@ function App() {
   const randomBotChoice = () => {
     const randomChoice = choices[Math.floor(Math.random() * choices.length)];
     setBotChoice(randomChoice);
+    console.log(randomChoice)
   };
 
   useEffect(() => {
@@ -48,10 +49,14 @@ function App() {
       <Container text textAlign="center">
         <HandGesters />
         <h1>You chose: {userChoice}</h1>
-        <h1>Computer chose: {botChoice} </h1>
-        <h1>{results}</h1>
+        <h1 data-cy="computer-choice-info">Computer chose: {botChoice} </h1>
+        <h1 data-cy="game-results">{results}</h1>
         {choices.map((choice, index) => (
-          <Button data-cy="btn-group" key={index} onClick={() => handleClick(choice)}>
+          <Button
+            data-cy="btn-group"
+            key={index}
+            onClick={() => handleClick(choice)}
+          >
             {choice}
           </Button>
         ))}
