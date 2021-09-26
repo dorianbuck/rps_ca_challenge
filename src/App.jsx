@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import ButtonGroup from "./components/ButtonGroup";
 import { Button, Container, Header } from 'semantic-ui-react'
 import HandGesters from "./components/HandGesters";
+import Footer from './components/Footer'
+import HeaderBlock from "./components/Header";
+
 
 
 function App() {
@@ -15,15 +18,16 @@ function App() {
   }
 
   return (
+    <>
+      <HeaderBlock />
     <Container text textAlign="center">
-      <Header data-cy="header" as="h1">
-        Lets play a game!
-        <Header.Subheader data-cy="sub-header">Make a choice by pressing the buttons below</Header.Subheader>
-      </Header>
+      
       <HandGesters />
       <ButtonGroup />
-      <Button disabled data-cy="btn-reset">Reset Game</Button>
+      <Button disabled data-cy="btn-reset" className="reset-button">Reset Game</Button>
     </Container>
+      <Footer />
+      </>
   );
 }
 
