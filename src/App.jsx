@@ -8,8 +8,8 @@ function App() {
   const [botChoice, setBotChoice] = useState(null);
   const [userChoice, setUserChoice] = useState(null);
   const [results, setResults] = useState(null);
-  const choices = ["rock", "paper", "scissor"];
-  const [resetButton, setResetButton] = useState(false);
+  const choices = ["Rock", "Paper", "Scissor"];
+  // const [resetButton, setResetButton] = useState(false);
 
   const handleClick = (value) => {
     setUserChoice(value);
@@ -23,19 +23,19 @@ function App() {
   useEffect(() => {
     {
       switch (userChoice + botChoice) {
-        case "rockscissor":
-        case "paperrock":
-        case "scissorpaper":
+        case "RockScissor":
+        case "PaperRock":
+        case "ScissorPaper":
           setResults("YOU WIN!");
           break;
-        case "rockpaper":
-        case "paperscissor":
-        case "scissorrock":
+        case "RockPaper":
+        case "PaperScissor":
+        case "ScissorRock":
           setResults("YOU LOST!");
           break;
-        case "rockrock":
-        case "paperpaper":
-        case "scissorscissor":
+        case "RockRock":
+        case "PaperPaper":
+        case "ScissorScissor":
           setResults("ITS A DRAW!");
           break;
       }
@@ -51,7 +51,7 @@ function App() {
         <h1>Computer chose: {botChoice} </h1>
         <h1>{results}</h1>
         {choices.map((choice, index) => (
-          <Button key={index} onClick={() => handleClick(choice)}>
+          <Button data-cy="btn-group" key={index} onClick={() => handleClick(choice)}>
             {choice}
           </Button>
         ))}
