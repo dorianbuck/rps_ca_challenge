@@ -9,8 +9,7 @@ function ResultsModal({ userChoice, botChoice, results, btnChoice }) {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      btnChoice={btnChoice}
-      trigger={<ButtonGroup />}
+      trigger={<ButtonGroup btnChoice={btnChoice} />}
     >
       <Modal.Header>{results}</Modal.Header>
       <Modal.Content>
