@@ -22,7 +22,9 @@ const HandGesters = () => {
               data-cy="computer-image"
               name="hand rock outline"
               size="massive"
+              flipped="vertically"
               rotated="counterclockwise"
+              id="computer-images"
             />
             Computer
           </Header>
