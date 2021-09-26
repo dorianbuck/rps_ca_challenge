@@ -4,12 +4,12 @@ import { Modal } from 'semantic-ui-react'
 
 
 
-function ResultsModal ({userChoice, computerChoice, results}) {
+function ResultsModal ({userChoice, botChoice, results}) {
   return (
     <Modal>
       <Modal.Header>{results}</Modal.Header>
-      <Modal.Content><p>You choose {userChoice}</p>
-      <p>Computer choose {computerChoice}</p>
+      <Modal.Content><p>You chose {userChoice}</p>
+      <p>Computer chose {botChoice}</p>
       </Modal.Content>
     </Modal>
   )
