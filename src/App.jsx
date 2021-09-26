@@ -4,6 +4,7 @@ import { Button, Container } from "semantic-ui-react";
 import HandGesters from "./components/HandGesters";
 import Footer from "./components/Footer";
 import HeaderBlock from "./components/Header";
+import ResultsModal from "./components/ResultsModal";
 
 function App() {
   const [botChoice, setBotChoice] = useState(null);
@@ -26,7 +27,7 @@ function App() {
       <HeaderBlock />
       <Container text textAlign="center">
         <HandGesters />
-        <ButtonGroup />
+        <ResultsModal />
         <Button disabled data-cy="btn-reset" className="reset-button">
           Reset Game
         </Button>
