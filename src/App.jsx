@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Buttons from "./components/Buttons";
-import { Button } from 'semantic-ui-react'
+import ButtonGroup from "./components/ButtonGroup";
+import { Button, Container } from 'semantic-ui-react'
+import HandGesters from "./components/HandGesters";
 
 
 function App() {
@@ -14,13 +15,14 @@ function App() {
   }
 
   return (
-    <>
-      <Button data-cy="btn-reset">Reset Game</Button>
+    <Container text textAlign="center">
       <header data-cy="header">
       Lets play a game!
       </header>
-      <Buttons />
-    </>
+      <HandGesters />
+      <ButtonGroup />
+      <Button data-cy="btn-reset">Reset Game</Button>
+    </Container>
   );
 }
 
