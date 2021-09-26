@@ -3,17 +3,16 @@ import { Button, Container } from "semantic-ui-react";
 import HandGesters from "./components/HandGesters";
 import Footer from "./components/Footer";
 import HeaderBlock from "./components/Header";
-import ResultsModal from "./components/ResultsModal";
 
-function App({ btnChoice }) {
+function App() {
   const [botChoice, setBotChoice] = useState(null);
   const [userChoice, setUserChoice] = useState(null);
   const [results, setResults] = useState(null);
   const choices = ["rock", "paper", "scissor"];
-  // const [resetButton, setResetButton] = useState(false)
+  const [resetButton, setResetButton] = useState(false);
 
   const handleClick = (value) => {
-    setBotChoice(value);
+    setUserChoice(value);
     randomBotChoice();
   };
   const randomBotChoice = () => {
@@ -41,14 +40,21 @@ function App({ btnChoice }) {
           break;
       }
     }
-  });
+  }, [userChoice, botChoice]);
 
   return (
     <>
       <HeaderBlock />
       <Container text textAlign="center">
         <HandGesters />
-        <ResultsModal btnChoice={btnChoice} onClick={() => handleClick(choices)}/>
+        <h1>You chose: {userChoice}</h1>
+        <h1>Computer chose: {botChoice} </h1>
+        <h1>{results}</h1>
+        {choices.map((choice, index) => (
+          <Button key={index} onClick={() => handleClick(choice)}>
+            {choice}
+          </Button>
+        ))}
         <Button disabled data-cy="btn-reset" className="reset-button">
           Reset Game
         </Button>

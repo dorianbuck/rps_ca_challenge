@@ -1,15 +1,15 @@
 import React from "react";
-import { Modal } from "semantic-ui-react";
+import { Modal, Button } from "semantic-ui-react";
 import ButtonGroup from "./ButtonGroup";
 
-function ResultsModal({ userChoice, botChoice, results, btnChoice }) {
+function ResultsModal({ userChoice, botChoice, results, btnChoice, handleClick, choices }) {
   const [open, setOpen] = React.useState(false);
   return (
     <Modal
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<ButtonGroup btnChoice={btnChoice} />}
+      trigger={<Button>Test</Button>}
     >
       <Modal.Header>{results}</Modal.Header>
       <Modal.Content>

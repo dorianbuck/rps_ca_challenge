@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "semantic-ui-react";
 
-const Buttons = ({ btnChoice }) => {
+const ButtonGroup = ({ btnChoice }) => {
   return (
     <div>
       <Button.Group data-cy="btn-group" basic className="btn-group" btnChoice={btnChoice} >
@@ -13,4 +13,4 @@ const Buttons = ({ btnChoice }) => {
   );
 };
 
-export default Buttons;
+export default ButtonGroup;
