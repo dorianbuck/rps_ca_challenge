@@ -18,7 +18,7 @@ function App() {
   const randomBotChoice = () => {
     const randomChoice = choices[Math.floor(Math.random() * choices.length)];
     setBotChoice(randomChoice);
-    console.log(randomChoice)
+    console.log(randomChoice);
   };
 
   useEffect(() => {
