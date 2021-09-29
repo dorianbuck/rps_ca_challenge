@@ -9,11 +9,6 @@ describe("The game logic is being tested", () => {
       cy.get("[data-cy=btn-group]").as("btnGroup");
     });
     it("is expected to display the computer choice and outcome when users choice is rock", () => {
-      // cy.visit("/", {
-      //   onBeforeLoad(win) {
-      //     cy.stub(win.Math, "random").returns('Scissor');
-      //   },
-      // });
       cy.get("@btnGroup").first().click();
       cy.get("[data-cy=computer-choice-info]").should("contain", "Rock");
       cy.get("[data-cy=game-results]").should("contain", "ITS A DRAW!");
