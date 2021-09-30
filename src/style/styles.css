@@ -1,5 +1,4 @@
 body {
-  margin: 0%;
   background-color: #eeedfc;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -20,22 +19,14 @@ footer {
   margin-bottom: 0;
   text-align: center;
 }
-.btn-group {
-  background-color: grey;
-  margin-bottom: 40px;
-}
-
-.reset-button {
-  margin: 100px;
-}
 
 #header-tops {
-  font-size: 4em;
+  font-size: 3em;
   forced-color-adjust: white;
   width: 100%;
   background-color: darkslateblue;
   padding: 30px;
-  height: 3em;
+  
 }
 
 #sub-headers {
@@ -43,8 +34,4 @@ footer {
   font-weight: bold;
   font-size: 0.3em;
   font-style: normal;
-}
-
-#computer-images {
-  transform: rotateX(180);
 }
