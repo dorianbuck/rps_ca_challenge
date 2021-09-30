@@ -40,6 +40,9 @@ footer {
 
 #sub-headers {
   color: red;
+  font-weight: bold;
+  font-size: 0.3em;
+  font-style: normal;
 }
 
 #computer-images {

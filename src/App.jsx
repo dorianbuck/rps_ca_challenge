@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Container } from "semantic-ui-react";
+import { Button, Container, Grid } from "semantic-ui-react";
 import HandGesters from "./components/HandGesters";
 import Footer from "./components/Footer";
 import HeaderBlock from "./components/Header";
@@ -9,7 +9,6 @@ function App() {
   const [userChoice, setUserChoice] = useState(null);
   const [results, setResults] = useState(null);
   const choices = ["Rock", "Paper", "Scissor"];
-  // const [resetButton, setResetButton] = useState(false);
 
   const handleClick = (value) => {
     setUserChoice(value);
@@ -38,6 +37,7 @@ function App() {
         case "ScissorScissor":
           setResults("ITS A DRAW!");
           break;
+        default: break
       }
     }
   }, [userChoice, botChoice]);
@@ -47,17 +47,29 @@ function App() {
       <HeaderBlock />
       <Container text textAlign="center">
         <HandGesters />
-        <h1>You chose: {userChoice}</h1>
-        <h1>Computer chose: {botChoice} </h1>
-        <h1>{results}</h1>
+        <Grid padded placeholder>
+          <Grid.Row>
+            <Grid.Column width={3}>
+              <h1>{userChoice}</h1>
+            </Grid.Column>
+            <Grid.Column width={10}>
+              <h1 data-cy="game-results">{results}</h1>
+            </Grid.Column>
+            <Grid.Column width={3}>
+              <h1 data-cy="computer-choice-info">{botChoice} </h1>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+
         {choices.map((choice, index) => (
-          <Button data-cy="btn-group" key={index} onClick={() => handleClick(choice)}>
+          <Button
+            data-cy="btn-group"
+            key={index}
+            onClick={() => handleClick(choice)}
+          >
             {choice}
           </Button>
         ))}
-        <Button disabled data-cy="btn-reset" className="reset-button">
-          Reset Game
-        </Button>
       </Container>
       <Footer />
     </>
