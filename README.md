@@ -9,7 +9,7 @@
 [Deployed at Netlify](https://rockpaperscissors-game-single-player.netlify.app/)
 
 
-[![Build Status](https://dorianbuck.semaphoreci.com/badges/rps_ca_challenge/branches/master.svg?style=shields)](https://dorianbuck.semaphoreci.com/projects/rps_ca_challenge)
+[![Build Status](https://dorianbuck.semaphoreci.com/badges/rps_ca_challenge/branches/main.svg?style=shields)](https://dorianbuck.semaphoreci.com/projects/rps_ca_challenge)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/84ed7bee-193c-4945-b5a2-d5767351bf62/deploy-status)](https://app.netlify.com/sites/rockpaperscissors-game-single-player/deploys)
 
 ## Setup
