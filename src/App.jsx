@@ -20,25 +20,24 @@ function App() {
   };
 
   useEffect(() => {
-    {
-      switch (userChoice + botChoice) {
-        case "RockScissor":
-        case "PaperRock":
-        case "ScissorPaper":
-          setResults("YOU WIN!");
-          break;
-        case "RockPaper":
-        case "PaperScissor":
-        case "ScissorRock":
-          setResults("YOU LOST!");
-          break;
-        case "RockRock":
-        case "PaperPaper":
-        case "ScissorScissor":
-          setResults("ITS A DRAW!");
-          break;
-        default: break
-      }
+    switch (userChoice + botChoice) {
+      case "RockScissor":
+      case "PaperRock":
+      case "ScissorPaper":
+        setResults("YOU WIN!");
+        break;
+      case "RockPaper":
+      case "PaperScissor":
+      case "ScissorRock":
+        setResults("YOU LOST!");
+        break;
+      case "RockRock":
+      case "PaperPaper":
+      case "ScissorScissor":
+        setResults("ITS A DRAW!");
+        break;
+      default:
+        break;
     }
   }, [userChoice, botChoice]);
 
@@ -47,7 +46,7 @@ function App() {
       <HeaderBlock />
       <Container text textAlign="center">
         <HandGesters />
-        <Grid padded placeholder>
+        <Grid padded>
           <Grid.Row>
             <Grid.Column width={3}>
               <h1>{userChoice}</h1>

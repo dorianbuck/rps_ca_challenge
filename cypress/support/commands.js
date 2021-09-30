@@ -26,11 +26,11 @@
 
 
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add("random", (result) => {
-  cy.reload().then((win) => {
-    if (win.Math.random.restore) {
-      win.Math.random.restore();
-    }
-    sinon.stub(win.Math, "random").returns(result);
-  });
-});
+// Cypress.Commands.add("random", (result) => {
+//   cy.reload().then((win) => {
+//     if (win.Math.random.restore) {
+//       win.Math.random.restore();
+//     }
+//     sinon.stub(win.Math, "random").returns(result);
+//   });
+// });
