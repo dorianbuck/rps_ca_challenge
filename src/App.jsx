@@ -37,7 +37,7 @@ function App() {
         setResults("ITS A DRAW!");
         break;
       default:
-        break;
+        console.log("PLease press a button to play");
     }
   }, [userChoice, botChoice]);
 
