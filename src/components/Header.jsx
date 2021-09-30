@@ -4,7 +4,7 @@ import { Container, Header } from "semantic-ui-react";
 const HeaderBlock = () => {
   return (
     <div id="header-tops">
-    <Container  textAlign="center">
+    <Container textAlign="center">
       <Header color="orange" data-cy="header" >
         Do you want to play a game?
         <Header sub color="red" data-cy="sub-header" id="sub-headers">
