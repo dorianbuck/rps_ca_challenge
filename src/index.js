@@ -1,15 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'semantic-ui-css/semantic.min.css'
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import "./style/styles.css"
+import React from "react";
+import ReactDOM from "react-dom";
+import "semantic-ui-css/semantic.min.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "./style/styles.css";
 
 ReactDOM.render(
-  <>
-    <App />
-  </>,
-  document.getElementById('root')
+  <App />,
+
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

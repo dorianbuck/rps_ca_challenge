@@ -5,9 +5,9 @@ import Footer from "./components/Footer";
 import HeaderBlock from "./components/Header";
 
 function App() {
-  const [botChoice, setBotChoice] = useState(null);
-  const [userChoice, setUserChoice] = useState(null);
-  const [results, setResults] = useState(null);
+  const [botChoice, setBotChoice] = useState();
+  const [userChoice, setUserChoice] = useState();
+  const [results, setResults] = useState();
   const choices = ["Rock", "Paper", "Scissor"];
 
   const handleClick = (value) => {
@@ -37,7 +37,7 @@ function App() {
         setResults("ITS A DRAW!");
         break;
       default:
-        break;
+        console.log("PLease press a button to play");
     }
   }, [userChoice, botChoice]);
 
@@ -49,7 +49,7 @@ function App() {
         <Grid padded>
           <Grid.Row>
             <Grid.Column width={3}>
-              <h1>{userChoice}</h1>
+              <h1 data-cy="user-choice-header">{userChoice}</h1>
             </Grid.Column>
             <Grid.Column width={10}>
               <h1 data-cy="game-results">{results}</h1>
@@ -59,10 +59,9 @@ function App() {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-
         {choices.map((choice, index) => (
           <Button
-            data-cy="btn-group"
+            data-cy={`btn-${index}`}
             key={index}
             onClick={() => handleClick(choice)}
           >
