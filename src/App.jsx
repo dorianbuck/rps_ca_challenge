@@ -17,7 +17,6 @@ function App() {
   const randomBotChoice = () => {
     const randomChoice = choices[Math.floor(Math.random() * choices.length)];
     setBotChoice(randomChoice);
-    console.log(randomChoice);
   };
 
   useEffect(() => {
@@ -33,9 +32,12 @@ function App() {
         case "ScissorRock":
           setResults("YOU LOST!");
           break;
-        default:
+        case "RockRock":
+        case "PaperPaper":
+        case "ScissorScissor":
           setResults("ITS A DRAW!");
           break;
+        default: break
       }
     }
   }, [userChoice, botChoice]);
@@ -45,7 +47,7 @@ function App() {
       <HeaderBlock />
       <Container text textAlign="center">
         <HandGesters />
-        <Grid padded>
+        <Grid padded placeholder>
           <Grid.Row>
             <Grid.Column width={3}>
               <h1>{userChoice}</h1>
@@ -54,9 +56,7 @@ function App() {
               <h1 data-cy="game-results">{results}</h1>
             </Grid.Column>
             <Grid.Column width={3}>
-              <h1 data-cy="computer-choice-info">
-                 {botChoice}{" "}
-              </h1>
+              <h1 data-cy="computer-choice-info">{botChoice} </h1>
             </Grid.Column>
           </Grid.Row>
         </Grid>

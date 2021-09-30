@@ -9,10 +9,10 @@ describe("User can see the game page and press the buttons to play", () => {
   it("is expected to display a footer", () => {
     cy.get("[data-cy=footer]").should("contain", "Made with React 17.0.2");
   });
-  it("is expected to be a user hand illustration or image", () => {
+  it("is expected to display user a hand illustration or image", () => {
     cy.get("[data-cy=user-image]").should("be.visible");
   });
-  it("is expected to be a computer hand illustration or image", () => {
+  it("is expected to display a computer hand illustration or image", () => {
     cy.get("[data-cy=computer-image]").should("be.visible");
   });
   it("is expected to see a row of three buttons", () => {
